@@ -32,6 +32,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <div className="sticky bottom-0  w-full h-[2px] bg-gradient-to-r from-purple-500 to-pink-500"></div>
       </body>
     </html>
   );

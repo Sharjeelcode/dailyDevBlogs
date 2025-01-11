@@ -11,22 +11,22 @@ export default async function Page({ params }: { params: { slug: string } }) {
   console.log(params.slug);
 
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4">
-      <Link href="/" className="hover:underline">
+    <main className="container md:mx-12 min-h-screen max-w-3xl p-4 flex flex-col gap-4">
+      <Link href="/blogs" className="hover:underline">
         ← Back to posts
       </Link>
 
-      <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
+      <h1 className="text-2xl md:text-4xl font-bold mb-2">{post.title}</h1>
+      <Image
+        src={urlFor(post.image).url()}
+        alt={post.title || "Post Image"}
+        className="w-full h-96 rounded-lg"
+        width={20}
+        height={20}
+      />
       <div className="prose">
         <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
         {Array.isArray(post.body) && <PortableText value={post.body} />}
-        <Image
-          src={urlFor(post.image).url()}
-          alt={post.title || "Post Image"}
-          className="w-12 h-12"
-          width={20}
-          height={20}
-        />
       </div>
     </main>
   );

@@ -82,7 +82,6 @@ function Header() {
           onClick={headerHandler}
         />
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-500 to-pink-500"></div>
     </>
   );
 }

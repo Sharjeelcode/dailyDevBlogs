@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="text-center flex flex-col items-center justify-center h-[80vh] gap-2 px-2">
+      <div className="text-center flex flex-col items-center justify-center h-[90vh] gap-2 px-2">
         <h2 className="text-3xl md:text-[40px] font-bold leading-snug">
           Where developers
           <br />
