@@ -3,12 +3,12 @@ import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import Comments from "../components/Comments";
 
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const post = await client.fetch(POST_QUERY, params);
-  console.log(params.slug);
 
   return (
     <main className="w-full md:mx-auto min-h-screen max-w-3xl p-4 flex flex-col gap-4">
@@ -28,6 +28,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
         {Array.isArray(post.body) && <PortableText value={post.body} />}
       </div>
+      {/* comment box */}
+      <Comments />
     </main>
   );
 }
