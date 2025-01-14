@@ -3,8 +3,8 @@ import React from "react";
 import { useState } from "react";
 
 function Comments() {
-  const [comments, setcomments] = useState([]);
-  const [comment, setcomment] = useState("");
+  const [comments, setcomments] = useState<string[]>([]);
+  const [comment, setcomment] = useState<string>("");
   const comentors = ["ALi", "Ahmed", "Maaz", "Shehbaz", "Talha"];
   const handleComments = (e: any) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ function Comments() {
               </label>
               <textarea
                 id="comment"
-                rows="4"
+                rows={4}
                 className="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
                 placeholder="Write a comment..."
                 required
