@@ -10,7 +10,7 @@ const POSTS_QUERY = `*[ _type == "post" && defined(slug.current) ]|order(publish
   title,
   slug,
   publishedAt,
-  image,
+  mainImage,
   body
 }`;
 const options = { next: { revalidate: 30 } };
@@ -21,11 +21,11 @@ export default async function Page() {
   return (
     <main className="container mx-auto min-h-screen  p-8">
       <h1 className="text-4xl font-bold mb-8">Blogs</h1>
-      <ul className="flex flex-col gap-y-8">
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <li key={post._id} className="flex gap-4">
             <Card
-              imageSrc={urlFor(post.image).url()}
+              imageSrc={urlFor(post.mainImage).url()}
               title={post.title}
               body={post.body[0].children[0].text}
               href={`/${post.slug.current}`}

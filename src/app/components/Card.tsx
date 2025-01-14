@@ -15,12 +15,11 @@ const Card: React.FC<Props> = ({ title, body, imageSrc, href }) => {
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700">
       <Link href={href}>
         <Image
-          className="rounded-t-lg"
+          className="w-full h-32 rounded-t-lg"
           src={imageSrc}
           alt={title}
           width={100}
           height={100}
-          className="w-full h-32  rounded-t-lg"
         />
       </Link>
       <div className="p-5">
